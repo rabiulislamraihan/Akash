@@ -37,14 +37,62 @@ public class Bill implements Serializable {
         return total+tax;
     }
     
-//    public static String PrintBill(String name, String timeStamp, float equipmentCharge,float serviceCharge, float discount,float total,float grandTotal)
-//    {
-//            
-//            
-//    
-//            
-//            
-//            
-//    }
+//  
+
+    public String getClient() {
+        return Client;
+    }
+
+    public void setClient(String Client) {
+        this.Client = Client;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public float getEquipmentCharge() {
+        return EquipmentCharge;
+    }
+
+    public void setEquipmentCharge(float EquipmentCharge) {
+        this.EquipmentCharge = EquipmentCharge;
+    }
+
+    public float getSericeCharge() {
+        return SericeCharge;
+    }
+
+    public void setSericeCharge(float SericeCharge) {
+        this.SericeCharge = SericeCharge;
+    }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    public float getGrandTotal() {
+        return GrandTotal;
+    }
+
+    public void setGrandTotal(float GrandTotal) {
+        this.GrandTotal = GrandTotal;
+    }
     
 }

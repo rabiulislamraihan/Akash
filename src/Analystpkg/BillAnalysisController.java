@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package Analystpkg;
+import Technicianpkg.Bill;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -45,7 +46,7 @@ public class BillAnalysisController implements Initializable {
             
             while(true){
                 b = (Bill) ois.readObject();
-                series.getData().add(new XYChart.Data<String, Number>(b.Client ,b.total));
+                series.getData().add(new XYChart.Data<String, Number>(b.getClient() ,b.getTotal()));
                 
             }
             
