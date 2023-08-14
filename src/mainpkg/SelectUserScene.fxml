@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.SelectUserSceneController">
+   <children>
+      <RadioButton fx:id="customerRadioButton" layoutX="332.0" layoutY="247.0" mnemonicParsing="false" text="Customer" />
+      <RadioButton fx:id="EmployeeRadioButton" layoutX="450.0" layoutY="247.0" mnemonicParsing="false" text="Employee" />
+      <Label layoutX="231.0" layoutY="247.0" text="Select a User:" />
+      <Button layoutX="567.0" layoutY="243.0" mnemonicParsing="false" onMouseClicked="#NextButtonOnClick" text="Next" />
+   </children>
+</AnchorPane>
