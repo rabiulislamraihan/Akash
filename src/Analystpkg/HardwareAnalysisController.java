@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package Analystpkg;
+import Technicianpkg.Hardware;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -55,7 +56,7 @@ public class HardwareAnalysisController implements Initializable {
             
             while(true){
                 h = (Hardware) ois.readObject();
-                list.add(new PieChart.Data(h.name, h.unitCost));
+                list.add(new PieChart.Data(h.getName(), h.getUnitCost()));
                 
             }
             

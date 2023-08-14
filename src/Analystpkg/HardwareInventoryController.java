@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package Analystpkg;
+import Technicianpkg.Hardware;
+import Technicianpkg.Technician;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -76,7 +78,7 @@ public class HardwareInventoryController implements Initializable {
             while(true){
                 h = (Hardware) ois.readObject();
                 InventoryTable.getItems().add(h);
-                equipmentCombobox.getItems().addAll(h.name);
+                equipmentCombobox.getItems().addAll(h.getName());
 
             }
         }
