@@ -25,6 +25,8 @@ public class AddNewEmployeeSceneController implements Initializable {
     private DatePicker DateOfBirthDatePicker;
     @FXML
     private ComboBox<String> designationComboBox;
+    int hi;
+    
 
     /**
      * Initializes the controller class.
