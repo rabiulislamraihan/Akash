@@ -48,5 +48,9 @@ public class AccountManagerHomePageSceneController implements Initializable {
     @FXML
     private void generateFinancialReportMenuitem(ActionEvent event) {
     }
+
+    @FXML
+    private void createbillmenuitem(ActionEvent event) {
+    }
     
 }
