@@ -37,5 +37,13 @@ public class CustomerHomePageSceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void answerSurveysOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AnswerSurvey.fxml"));
+        BorderPane.setCenter(parent);   
+        
+        
+    }
     
 }
