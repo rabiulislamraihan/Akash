@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 public class CustomerHomePageSceneController implements Initializable {
 
     @FXML
-    private BorderPane BorderPane;
+    public BorderPane BorderPane;
 
 
     @Override
@@ -44,6 +44,13 @@ public class CustomerHomePageSceneController implements Initializable {
         BorderPane.setCenter(parent);   
         
         
+    }
+
+    @FXML
+    private void BuyPackageButtonOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyPackage.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
     }
     
 }
