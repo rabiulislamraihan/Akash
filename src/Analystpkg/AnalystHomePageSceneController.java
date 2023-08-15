@@ -21,8 +21,6 @@ import javafx.fxml.Initializable;
 
 public class AnalystHomePageSceneController implements Initializable {
 
-
-    
     private Analyst c;
     @FXML
     private BorderPane BorderPane;
