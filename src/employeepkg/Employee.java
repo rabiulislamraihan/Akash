@@ -104,7 +104,7 @@ public class Employee implements Serializable {
         return password.toString();
     }
     
-    public static boolean CheckAccountExistence(String email) {
+    public static boolean CheckAccountExistence(int EmployeeID) {
         ObjectInputStream ois = null;
         boolean result = false;
         try {
@@ -113,7 +113,32 @@ public class Employee implements Serializable {
              
             while(true){
                 c = (Employee) ois.readObject();
-                if(c.getEmail().equals(email)) {
+                if(c.getEmployeeID() == EmployeeID) {
+                    result = true;
+                }
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        return result;
+    }
+    public static boolean CheckAccountExistence(String Email) {
+        ObjectInputStream ois = null;
+        boolean result = false;
+        try {
+             Employee c;
+             ois = new ObjectInputStream(new FileInputStream("Employee.bin"));
+             
+            while(true){
+                c = (Employee) ois.readObject();
+                if(c.getEmail().equals(Email)) {
                     result = true;
                 }
             }
@@ -195,6 +220,34 @@ public class Employee implements Serializable {
 
         try {
             f = new File("Employee.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(c);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public static void PaySalary(Salary c) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+
+        try {
+            f = new File("Salary.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f,true);
                 oos = new AppendableObjectOutputStream(fos);                

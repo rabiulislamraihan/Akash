@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -39,39 +40,27 @@ public class SeeEmployeeDetailsController implements Initializable {
     private TextField employeeIDTextField;
     @FXML
     private DatePicker DateOfJoiningDatePicker;
-    @FXML
-    private TableView<Salary> tableView;
 
-    @FXML
-    private TableColumn<Salary, LocalDate> DateColumn;
-    @FXML
-    private TableColumn<Salary, Integer> BaseSalaryColumn;
-    @FXML
-    private TableColumn<Salary, Integer> BonusColumn;
-    @FXML 
-    private TableColumn<Salary, Integer> OvertimePayColumn;
-    @FXML
-    private TableColumn<Salary, Integer> PerformanceBasedPayColumn;
-    @FXML
-    private TableColumn<Salary, Integer> TotalColumn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        DateColumn.setCellValueFactory(new PropertyValueFactory<Salary, LocalDate>("SalaryDate"));
-        BaseSalaryColumn.setCellValueFactory(new PropertyValueFactory<Salary, Integer>("BaseSalary"));
-        BonusColumn.setCellValueFactory(new PropertyValueFactory<Salary, Integer>("Bonus"));
-        OvertimePayColumn.setCellValueFactory(new PropertyValueFactory<Salary, Integer>("OvertimePay"));
-        PerformanceBasedPayColumn.setCellValueFactory(new PropertyValueFactory<Salary, Integer>("PerformanceBasedPay"));
-        TotalColumn.setCellValueFactory(new PropertyValueFactory<Salary, Integer>("firstName"));
         // TODO
     }    
 
     @FXML
     private void SeeInformationOnClick(MouseEvent event) {
-        Employee employee = Employee.getInstance(Integer.parseInt(employeeIDTextField.getText()));
+        int id = Integer.parseInt(employeeIDTextField.getText());
+        if (Employee.CheckAccountExistence(id) == false) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("Employee Not Found !");
+            a.showAndWait();
+        }
+        Employee employee = Employee.getInstance(id);
             nameTextField.setText(employee.getName());
             addressTextField.setText(employee.getAddress());
             contactNumberTextField.setText(employee.getContactNumber());
@@ -80,11 +69,6 @@ public class SeeEmployeeDetailsController implements Initializable {
             designationTextField.setText(employee.getDesignation());
             passwordTextField.setText(employee.getPassword());
             DateOfJoiningDatePicker.setValue(employee.getDateOfJoining());
-    }
-
-    @FXML
-    private void SeeSalaryDetailsOnClick(MouseEvent event) {
-        
     }
     
 }

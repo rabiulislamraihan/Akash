@@ -18,6 +18,8 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#AddNewEmployeeOnClick" text="Add New Employee" />
                   <MenuItem mnemonicParsing="false" onAction="#SeeEmployeeDetailsOnClick" text="See Employee Details" />
+                  <MenuItem mnemonicParsing="false" onAction="#SeeEmployeeSalaryDetails" text="See Employee Salary Details" />
+                  <MenuItem mnemonicParsing="false" onAction="#SalaryDisbursementOnClick" text="Salary Disbursement" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Manage Customer">

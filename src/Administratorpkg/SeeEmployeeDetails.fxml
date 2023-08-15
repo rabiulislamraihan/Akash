@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -14,31 +12,20 @@
       <Label layoutX="84.0" layoutY="153.0" text="Address:" />
       <Label layoutX="83.0" layoutY="195.0" text="Contact Number:" />
       <Label layoutX="84.0" layoutY="236.0" text="Email:" />
-      <Label layoutX="485.0" layoutY="114.0" text="Date Of Birth:" />
+      <Label layoutX="79.0" layoutY="285.0" text="Date Of Birth:" />
       <TextField fx:id="nameTextField" layoutX="206.0" layoutY="109.0" prefHeight="26.0" prefWidth="202.0" />
       <TextField fx:id="addressTextField" layoutX="206.0" layoutY="149.0" prefHeight="26.0" prefWidth="202.0" />
       <TextField fx:id="contactNumberTextField" layoutX="206.0" layoutY="191.0" prefHeight="26.0" prefWidth="202.0" />
       <TextField fx:id="emailTextField" layoutX="206.0" layoutY="232.0" prefHeight="26.0" prefWidth="202.0" />
-      <DatePicker fx:id="DateOfBirthDatePicker" layoutX="606.0" layoutY="109.0" prefHeight="26.0" prefWidth="202.0" />
-      <Label layoutX="486.0" layoutY="195.0" text="Designation:" />
-      <Button layoutX="405.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#SeeInformationOnClick" text="See Informartion Details" />
-      <Label layoutX="85.0" layoutY="40.0" text="Enter Employee ID:" />
-      <TextField fx:id="designationTextField" layoutX="606.0" layoutY="191.0" prefHeight="26.0" prefWidth="202.0" />
-      <TextField fx:id="passwordTextField" layoutX="606.0" layoutY="232.0" prefHeight="26.0" prefWidth="202.0" />
-      <Label layoutX="487.0" layoutY="236.0" text="Password:" />
-      <TextField fx:id="employeeIDTextField" layoutX="206.0" layoutY="36.0" />
-      <DatePicker fx:id="DateOfJoiningDatePicker" layoutX="606.0" layoutY="149.0" prefHeight="26.0" prefWidth="202.0" />
-      <Label layoutX="485.0" layoutY="153.0" text="Date Of Joining" />
-      <Button layoutX="585.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#SeeSalaryDetailsOnClick" text="See Salary Details" />
-      <TableView fx:id="tableView" layoutX="30.0" layoutY="297.0" prefHeight="322.0" prefWidth="838.0">
-        <columns>
-          <TableColumn fx:id="DateColumn" prefWidth="109.60000038146973" text="Date" />
-          <TableColumn fx:id="BaseSalaryColumn" prefWidth="140.79998779296875" text="Base Salary" />
-            <TableColumn fx:id="BonusColumn" prefWidth="114.4000244140625" text="Bonus" />
-            <TableColumn fx:id="OvertimePayColumn" prefWidth="152.80007934570312" text="Overtime Pay" />
-            <TableColumn fx:id="PerformanceBasedPayColumn" prefWidth="163.199951171875" text="Performance Based Pay" />
-            <TableColumn fx:id="TotalColumn" prefWidth="160.00006103515625" text="Total" />
-        </columns>
-      </TableView>
+      <DatePicker fx:id="DateOfBirthDatePicker" layoutX="206.0" layoutY="281.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label layoutX="82.0" layoutY="379.0" text="Designation:" />
+      <Button layoutX="567.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#SeeInformationOnClick" text="See Informartion Details" />
+      <Label layoutX="516.0" layoutY="204.0" text="Enter Employee ID:" />
+      <TextField fx:id="designationTextField" layoutX="206.0" layoutY="375.0" prefHeight="26.0" prefWidth="202.0" />
+      <TextField fx:id="passwordTextField" layoutX="206.0" layoutY="422.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label layoutX="80.0" layoutY="426.0" text="Password:" />
+      <TextField fx:id="employeeIDTextField" layoutX="651.0" layoutY="200.0" />
+      <DatePicker fx:id="DateOfJoiningDatePicker" layoutX="206.0" layoutY="325.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label layoutX="78.0" layoutY="329.0" text="Date Of Joining" />
    </children>
 </AnchorPane>

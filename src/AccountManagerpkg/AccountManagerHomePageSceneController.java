@@ -52,5 +52,19 @@ public class AccountManagerHomePageSceneController implements Initializable {
     @FXML
     private void createbillmenuitem(ActionEvent event) {
     }
+
+    @FXML
+    private void SalaryDisbursementOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/employeepkg/SalaryDisbursementScene.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void SeeEmployeeSalaryDetails(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/employeepkg/SeeEmployeeSalaryDetails.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
     
 }

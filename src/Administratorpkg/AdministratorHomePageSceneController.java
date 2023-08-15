@@ -65,4 +65,18 @@ public class AdministratorHomePageSceneController implements Initializable {
         Parent root = loader.load();
         BorderPane.setCenter(root);
     }
+
+    @FXML
+    private void SalaryDisbursementOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/employeepkg/SalaryDisbursementScene.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void SeeEmployeeSalaryDetails(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/employeepkg/SeeEmployeeSalaryDetails.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
 }

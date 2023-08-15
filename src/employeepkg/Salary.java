@@ -6,7 +6,8 @@ import java.time.LocalDate;
 
 
 public class Salary implements Serializable {
-    private LocalDate SalaryDate;
+    private String Month;
+    private int Year;
     private int EmployeeID;
     private int BaseSalary;
     private int Bonus;
@@ -14,8 +15,9 @@ public class Salary implements Serializable {
     private int PerformanceBasedPay;
     private int TotalPay;
 
-    public Salary(LocalDate SalaryDate, int EmployeeID, int BaseSalary, int Bonus, int OvertimePay, int PerformanceBasedPay) {
-        this.SalaryDate = SalaryDate;
+    public Salary(String Month, int Year, int EmployeeID, int BaseSalary, int Bonus, int OvertimePay, int PerformanceBasedPay) {
+        this.Month = Month;
+        this.Year = Year;
         this.EmployeeID = EmployeeID;
         this.BaseSalary = BaseSalary;
         this.Bonus = Bonus;
@@ -41,17 +43,23 @@ public class Salary implements Serializable {
     public void setEmployeeID(int EmployeeID) {
         this.EmployeeID = EmployeeID;
     }
-    
-    
 
-    public LocalDate getSalaryDate() {
-        return SalaryDate;
+    public String getMonth() {
+        return Month;
     }
 
-    public void setSalaryDate(LocalDate SalaryDate) {
-        this.SalaryDate = SalaryDate;
+    public void setMonth(String Month) {
+        this.Month = Month;
     }
 
+    public int getYear() {
+        return Year;
+    }
+
+    public void setYear(int Year) {
+        this.Year = Year;
+    }
+    
     public int getBaseSalary() {
         return BaseSalary;
     }
