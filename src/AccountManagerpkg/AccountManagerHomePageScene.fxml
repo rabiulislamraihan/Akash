@@ -14,6 +14,22 @@
               <MenuItem mnemonicParsing="false" onAction="#ViewPersonalInformationOnClick" text="Personal Information" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Financial Reporting">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#createFinancialDataMenuitem" text="Create Financial Data" />
+                  <MenuItem mnemonicParsing="false" onAction="#generateFinancialReportMenuitem" text="Generate Financial Report" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Billing and Invoicing">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Employee Salary management">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Logout">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#LogoutButtonOnClick" text="Logout" />

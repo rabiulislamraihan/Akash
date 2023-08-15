@@ -23,11 +23,11 @@ public class SelectUserSceneController implements Initializable {
     private RadioButton customerRadioButton;
     @FXML
     private RadioButton EmployeeRadioButton;
-    private ToggleGroup tg;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ToggleGroup tg = new ToggleGroup();
         customerRadioButton.setToggleGroup(tg);
         EmployeeRadioButton.setToggleGroup(tg);
         // TODO
@@ -37,7 +37,7 @@ public class SelectUserSceneController implements Initializable {
     private void NextButtonOnClick(MouseEvent event) throws IOException {
         if(customerRadioButton.isSelected()) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("CustomerLoginPageScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/customerpkg/CustomerHomePageScene.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
