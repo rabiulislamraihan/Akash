@@ -1,5 +1,5 @@
 
-package Analystpkg;
+package AccountManagerpkg;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,17 +14,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
-public class AnalystHomePageSceneController implements Initializable {
+public class AccountManagerHomePageSceneController implements Initializable {
 
-
-    
-    private Analyst c;
     @FXML
     private BorderPane BorderPane;
     
-    public void data(Analyst c) {
-        this.c = c;
-    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -42,18 +37,6 @@ public class AnalystHomePageSceneController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private void AnalyseBillsOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("BillAnalysis.fxml"));
-        BorderPane.setCenter(parent);
-    }
-
-    @FXML
-    private void hardwareAnalysisOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("HardwareAnalysis.fxml"));
-        BorderPane.setCenter(parent);
     }
     
 }
