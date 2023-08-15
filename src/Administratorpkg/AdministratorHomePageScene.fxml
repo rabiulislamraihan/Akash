@@ -22,6 +22,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#SalaryDisbursementOnClick" text="Salary Disbursement" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Package Management">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AddNewPackageOnClick" text="Add New Package" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Manage Customer">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#SeeCustomerDetailsOnClick" text="See Customer Details" />

@@ -69,5 +69,12 @@ public class SalesRepresentativeHomePageSceneController implements Initializable
         Parent parent = FXMLLoader.load(getClass().getResource("srLeadInformation.fxml"));
         BorderPane.setCenter(parent);
     }
+
+    @FXML
+    private void AddNewPackageOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Packagepkg/AddNewPackage.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
     
 }

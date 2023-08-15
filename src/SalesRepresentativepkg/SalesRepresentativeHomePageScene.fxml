@@ -35,6 +35,11 @@
                   <MenuItem mnemonicParsing="false" text="About" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Package Management">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AddNewPackageOnClick" text="Add New Package" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Logout">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#LogoutButtonOnClick" text="Logout" />
