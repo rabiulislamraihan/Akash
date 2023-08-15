@@ -79,7 +79,11 @@ public class GenerateAndPayBillController implements Initializable {
 
     @FXML
     private void DownloadBillButtonOnClick(MouseEvent event) {
+        
+        
         PDFGenerator.generatePdf(bill);
+        
+        
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setTitle("Information Alert");
         a.setHeaderText("Alert");
