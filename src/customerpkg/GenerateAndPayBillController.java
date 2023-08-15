@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import Packagepkg.Package;
+import javafx.scene.control.Alert;
 
 /**
  * FXML Controller class
@@ -57,6 +58,22 @@ public class GenerateAndPayBillController implements Initializable {
 
     @FXML
     private void PayBillButtonOnClick(MouseEvent event) {
+        int transactionID = Subscriptions.GenerateTransactionID();
+          Subscriptions s = new Subscriptions(
+                  c.getCustomerID(),
+                  p.getCode(),
+                  LocalDate.now(),
+                  p.getPrice(),
+                  bill,
+                  transactionID
+          );
+          Subscriptions.insertBill(s);
+          Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle("Information Alert");
+        a.setHeaderText("Alert");
+        a.setContentText("Transaction has been Completed !\n"
+                + "Transaction ID: " + Integer.toString(transactionID));
+        a.showAndWait();
     }
 
     @FXML
