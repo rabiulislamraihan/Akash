@@ -17,7 +17,12 @@ import javafx.stage.Stage;
 public class CustomerHomePageSceneController implements Initializable {
 
     @FXML
-    public BorderPane BorderPane;
+    private BorderPane BorderPane;
+    private Customer c;
+    
+    public void data (Customer c) {
+        this.c = c;
+    }
 
 
     @Override
@@ -50,6 +55,8 @@ public class CustomerHomePageSceneController implements Initializable {
     private void BuyPackageButtonOnClick(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyPackage.fxml"));
         Parent root = loader.load();
+        BuyPackageController ctrl = loader.getController();
+        ctrl.data(c);
         BorderPane.setCenter(root);
     }
     

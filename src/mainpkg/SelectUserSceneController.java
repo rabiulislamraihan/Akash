@@ -37,7 +37,7 @@ public class SelectUserSceneController implements Initializable {
     private void NextButtonOnClick(MouseEvent event) throws IOException {
         if(customerRadioButton.isSelected()) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/customerpkg/CustomerHomePageScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/customerpkg/CustomerLoginPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

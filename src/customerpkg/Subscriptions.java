@@ -10,13 +10,23 @@ public class Subscriptions {
     private int PackageDuration;
     private LocalDate Purchasedate;
     private int price;
+    private String Bill;
     
-    public Subscriptions(int CustomerID, String PackageID, int PackageDuration, LocalDate Purchasedate, int price) {
+    public Subscriptions(int CustomerID, String PackageID, int PackageDuration, LocalDate Purchasedate, int price, String Bill) {
         this.CustomerID = CustomerID;
         this.PackageID = PackageID;
         this.PackageDuration = PackageDuration;
         this.Purchasedate = Purchasedate;
         this.price = price;
+        this.Bill = Bill;
+    }
+
+    public String getBill() {
+        return Bill;
+    }
+
+    public void setBill(String Bill) {
+        this.Bill = Bill;
     }
     
     public int getCustomerID() {

@@ -25,6 +25,7 @@ public class GenerateAndPayBillController implements Initializable {
     private TextArea showBillTextArea;
     private Customer c;
     private Package p;
+    private String bill = null; 
 
     /**
      * Initializes the controller class.
@@ -33,20 +34,20 @@ public class GenerateAndPayBillController implements Initializable {
     public void data(Customer c, Package p) {
         this.p = p;
         this.c = c;
-        String text =
-                "Customer ID:\t" + c.getCustomerID() +
-                "\nCustomer Name:\t" + c.getName() +
-                "\nCustomer Address:\t" + c.getAddress() +
+        bill =
+                "Customer ID:\t\t\t\t" + c.getCustomerID() +
+                "\nCustomer Name:\t\t\t" + c.getName() +
+                "\nCustomer Address:\t\t\t" + c.getAddress() +
                 "\nCustomer Contact Number:\t" + c.getContactNumber() +
-                "\nCustomer Email:\t" + c.getEmail() +
+                "\nCustomer Email:\t\t\t" + c.getEmail() +
                 "\n" +
-                "\nPackage ID:\t" + p.getCode() +
-                "\nPackage Title:\t" + p.getTitle() +
-                "\nPackage Duration:\t" + p.getDuration() +
-                "\nPackage Description:\n" + p.getDescription() +
-                "\nPackage Price:\t" + p.getPrice() +
-                "\nPackage Purchase Time:\t" + LocalDate.now();
-        showBillTextArea.setText(text);
+                "\nPackage ID:\t\t\t\t" + p.getCode() +
+                "\nPackage Title:\t\t\t\t" + p.getTitle() +
+                "\nPackage Duration:\t\t\t" + p.getDuration() + " months" + 
+                "\nPackage Description:\n" + p.getDescription() + "\n\n" +
+                "\nPackage Price:\t\t\t\t" + p.getPrice() + " BDT" +
+                "\nPackage Purchase Time:\t\t" + LocalDate.now();
+        showBillTextArea.setText(bill);
         
     }
     @Override

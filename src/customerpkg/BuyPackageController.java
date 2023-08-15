@@ -41,6 +41,12 @@ public class BuyPackageController implements Initializable {
     private TableColumn<Package, Integer> durationColumn;
     @FXML
     private TableColumn<Package, Integer> priceColumn;
+    private Customer c;
+    
+    
+    public void data (Customer c) {
+        this.c = c;
+    }
     
     
 
@@ -94,7 +100,16 @@ public class BuyPackageController implements Initializable {
     }
 
     @FXML
-    private void BuyPackageOnClick(MouseEvent event) {
+    private void BuyPackageOnClick(MouseEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GenerateAndPayBill.fxml"));
+        Parent root = loader.load();
+        Package p = tableView.getSelectionModel().getSelectedItem();
+        GenerateAndPayBillController ctrl = loader.getController();
+        ctrl.data(c, p);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
 }

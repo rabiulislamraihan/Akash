@@ -4,11 +4,13 @@
  */
 package Administratorpkg;
 
+import customerpkg.Customer;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -18,7 +20,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author raiha
  */
-public class CreateNewAccountSceneController implements Initializable {
+public class CreateNewAccountCustomerSceneController implements Initializable {
 
     @FXML
     private TextField nameTextField;
@@ -30,6 +32,8 @@ public class CreateNewAccountSceneController implements Initializable {
     private TextField emailTextField;
     @FXML
     private DatePicker DateOfBirthDatePicker;
+    @FXML
+    private TextField passwordTextField;
 
     /**
      * Initializes the controller class.
@@ -52,6 +56,27 @@ public class CreateNewAccountSceneController implements Initializable {
             String address = addressTextField.getText();
             String contactNumber = contactNumberTextField.getText();
             String email = emailTextField.getText();
+            LocalDate DOB = DateOfBirthDatePicker.getValue();
+            LocalDate DOJ = LocalDate.now();
+            String password = passwordTextField.getText();
+            int customerID = Customer.GenerateCustomerID();
+            if(Customer.CheckAccountExistence(email)) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setTitle("Information Alert");
+                a.setHeaderText("Alert");
+                a.setContentText("Account Already Exists !");
+                a.showAndWait();
+            }
+            else {
+                Customer c = new Customer(customerID, name, address, contactNumber, email, DOB, password);
+                Customer.CreateNewAccount(c);
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setTitle("Information Alert");
+                a.setHeaderText("Alert");
+                a.setContentText("Account has been Succesfully Created\n"
+                        + "Your Customer ID is: " + Integer.toString(customerID));
+                a.showAndWait();
+            }
             
 
     }
