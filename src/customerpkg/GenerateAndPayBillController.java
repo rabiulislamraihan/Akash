@@ -48,7 +48,7 @@ public class GenerateAndPayBillController implements Initializable {
                 "\nPackage Duration:\t\t\t" + p.getDuration() + " months" + 
                 "\nPackage Description:\n" + p.getDescription() + "\n\n" +
                 "\nPackage Price:\t\t\t\t" + p.getPrice() + " BDT" +
-                "\nPackage Purchase Time:\t\t" + LocalDate.now();
+                "\nPackage Purchase Date:\t\t" + LocalDate.now();
         showBillTextArea.setText(bill);
         
     }

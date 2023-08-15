@@ -86,4 +86,11 @@ public class AdministratorHomePageSceneController implements Initializable {
         Parent root = loader.load();
         BorderPane.setCenter(root);
     }
+
+    @FXML
+    private void PackageSoldReportOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PackageSoldPieChart.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
 }
