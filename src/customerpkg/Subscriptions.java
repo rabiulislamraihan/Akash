@@ -10,15 +10,13 @@ public class Subscriptions {
     private int PackageDuration;
     private LocalDate Purchasedate;
     private int price;
-    private int paid;
-
-    public Subscriptions(int CustomerID, String PackageID, int PackageDuration, LocalDate Purchasedate, int price, int paid) {
+    
+    public Subscriptions(int CustomerID, String PackageID, int PackageDuration, LocalDate Purchasedate, int price) {
         this.CustomerID = CustomerID;
         this.PackageID = PackageID;
         this.PackageDuration = PackageDuration;
         this.Purchasedate = Purchasedate;
         this.price = price;
-        this.paid = paid;
     }
     
     public int getCustomerID() {
@@ -61,14 +59,5 @@ public class Subscriptions {
         this.price = price;
     }
 
-    public int getPaid() {
-        return paid;
-    }
-
-    public void setPaid(int paid) {
-        this.paid = paid;
-    }
-    
-    
     
 }
