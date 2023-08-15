@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employeepkg.SeeEmployeeSalaryDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employeepkg.SeeEmployeeSalaryDetailsController">
    <children>
       <Label layoutX="85.0" layoutY="40.0" text="Enter Employee ID:" />
       <TextField fx:id="employeeIDTextField" layoutX="206.0" layoutY="36.0" />

@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Technicianpkg.ViewHardwareStatsController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99CCFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Technicianpkg.ViewHardwareStatsController">
    <children>
-      <Label layoutX="43.0" layoutY="44.0" text="Hardware Analysis">
+      <Label layoutX="43.0" layoutY="44.0" text="Hardware Analysis" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold Italic" size="22.0" />
          </font>
       </Label>
       <PieChart fx:id="piechart" layoutX="200.0" layoutY="130.0" prefHeight="368.0" prefWidth="500.0" title="Hardware Stats" />

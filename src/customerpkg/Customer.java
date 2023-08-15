@@ -211,6 +211,8 @@ public class Customer implements Serializable {
             }
         }
     }
+  
+
 
     public String getPassword() {
         return Password;

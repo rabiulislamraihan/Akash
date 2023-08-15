@@ -8,17 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SalesRepresentativepkg.SrPricingController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99CCFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SalesRepresentativepkg.SrPricingController">
    <children>
-      <Label layoutX="329.0" layoutY="43.0" text="Pirce Management" underline="true">
+      <Label layoutX="329.0" layoutY="43.0" text="Pirce Management" textFill="WHITE" underline="true">
          <font>
-            <Font name="System Bold" size="26.0" />
+            <Font name="System Bold Italic" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="131.0" text="Package:" />
-      <Label layoutX="44.0" layoutY="192.0" text="Original Price:" />
-      <Label layoutX="69.0" layoutY="267.0" text="New Price" />
-      <Label layoutX="72.0" layoutY="336.0" text="Discount:" />
+      <Label layoutX="67.0" layoutY="133.0" text="Package:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="44.0" layoutY="192.0" text="Original Price:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="69.0" layoutY="267.0" text="New Price" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="72.0" layoutY="336.0" text="Discount:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
       <TextField fx:id="pmNewPrice" layoutX="152.0" layoutY="262.0" />
       <ComboBox fx:id="pmPackage" layoutX="152.0" layoutY="126.0" onAction="#pmPackageClicked" prefHeight="31.0" prefWidth="187.0" />
       <TextArea fx:id="pmShow" layoutX="396.0" layoutY="118.0" prefHeight="478.0" prefWidth="466.0" />
