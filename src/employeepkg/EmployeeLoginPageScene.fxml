@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.EmployeeLoginPageSceneController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employeepkg.EmployeeLoginPageSceneController">
    <children>
       <ComboBox fx:id="designationComboBox" layoutX="427.0" layoutY="110.0" prefWidth="150.0" />
       <Label layoutX="286.0" layoutY="114.0" text="Select Designation:" />

@@ -1,4 +1,5 @@
 
+
 package Analystpkg;
 
 import java.io.IOException;
@@ -12,6 +13,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import javafx.fxml.FXML;
+
+import javafx.fxml.Initializable;
 
 
 public class AnalystHomePageSceneController implements Initializable {

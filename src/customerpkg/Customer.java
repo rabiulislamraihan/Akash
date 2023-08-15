@@ -24,14 +24,14 @@ public class Customer implements Serializable {
     private LocalDate DateOfJoining;
     private String Password;
 
-    public Customer(int customerID, String Name, String Address, String ContactNumber, String Email, LocalDate DateOfBirth, LocalDate DateOfJoining, String Password) {
+    public Customer(int customerID, String Name, String Address, String ContactNumber, String Email, LocalDate DateOfBirth, String Password) {
         this.customerID = customerID;
         this.Name = Name;
         this.Address = Address;
         this.ContactNumber = ContactNumber;
         this.Email = Email;
         this.DateOfBirth = DateOfBirth;
-        this.DateOfJoining = DateOfJoining;
+        this.DateOfJoining = LocalDate.now();
         this.Password = Password;
     }
     

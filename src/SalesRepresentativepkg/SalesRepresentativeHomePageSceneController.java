@@ -36,7 +36,7 @@ public class SalesRepresentativeHomePageSceneController implements Initializable
     @FXML
     private void LogoutButtonOnClick(ActionEvent event) throws IOException {
         Stage stage = (Stage) BorderPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/Accounts/LoginScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/SelectUserScene.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

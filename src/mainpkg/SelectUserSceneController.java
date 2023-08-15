@@ -44,7 +44,7 @@ public class SelectUserSceneController implements Initializable {
         }
         else {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("EmployeeLoginPageScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/employeepkg/EmployeeLoginPageScene.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
