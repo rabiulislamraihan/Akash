@@ -25,6 +25,7 @@
             <Menu mnemonicParsing="false" text="Package Management">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#AddNewPackageOnClick" text="Add New Package" />
+                  <MenuItem mnemonicParsing="false" onAction="#PackageSoldReportOnClick" text="PackageSoldReport" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Manage Customer">
