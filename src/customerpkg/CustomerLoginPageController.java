@@ -80,7 +80,12 @@ public class CustomerLoginPageController implements Initializable {
     }
 
     @FXML
-    private void BackButtonClick(MouseEvent event) {
+    private void BackButtonClick(MouseEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/SelectUserScene.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
 }
