@@ -6,6 +6,8 @@ package customerpkg;
 
 
 
+import Analystpkg.Survey;
+import Analystpkg.SuveyStore;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,12 +21,14 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import mainpkg.AppendableObjectOutputStream;
-import pkgfinal.project.Survey;
 
 /**
  * FXML Controller class
@@ -36,12 +40,9 @@ public class AnswerSurveyController implements Initializable {
     @FXML
     private ComboBox<String> surveysCombobox;
     @FXML
-    private Label questionsLabel;
+    private TextArea QuestionTextArea;
     @FXML
-    private TextField answersTextfield;
-    int i = 0;
-    @FXML
-    private Button loadQuestionButton;
+    private TextArea AnswerTextArea;
 
     /**
      * Initializes the controller class.
@@ -49,80 +50,71 @@ public class AnswerSurveyController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         ObjectInputStream ois = null;
-       
-        try{
-            Survey s;
-            ois = new ObjectInputStream(new FileInputStream("Survey.bin"));
-            
+        ObjectInputStream ois = null;
+        try {
+             Survey c;
+             ois = new ObjectInputStream(new FileInputStream("Survey.bin"));
+             
             while(true){
-                s = (Survey) ois.readObject();
-                surveysCombobox.getItems().add(s.getNameofsurvey() );
-                }
-                
+                c = (Survey) ois.readObject();
+                surveysCombobox.getItems().add(c.getQuestionNo());
+            }
         }
         catch(RuntimeException e){
             e.printStackTrace();
         }
-        catch (Exception ex){
+        catch (Exception ex) {
             try {
-                if(ois!=null){
+                if(ois!=null)
                     ois.close();
-                }
-            }
-            catch (IOException ex1){ }
+            } catch (IOException ex1) {  }           
         }
-        
         
     }    
 
+
+
+
+    
+    
     @FXML
-    private void loadQuestionsOnClick(ActionEvent event) {
-        
-        ObjectInputStream ois = null;
-       
-        try{
-            Survey s;
-            ois = new ObjectInputStream(new FileInputStream("Survey.bin"));
-            
-            while(true){
-                s = (Survey) ois.readObject();
-                int len = s.getListofquestions().size();
-                if(s.getNameofsurvey().equals(surveysCombobox.getValue())){
-                    questionsLabel.setText(s.getListofquestions().get(i).toString());
-                i++;
-                if(len==i ){
-                    loadQuestionButton.disableProperty() ;
-                }
-                return;
-                }
-                
-        }
-        }
-        catch(RuntimeException e){
-            e.printStackTrace();
-        }
-        catch (Exception ex){
-            try {
-                if(ois!=null){
-                    ois.close();
-                }
-            }
-            catch (IOException ex1){ }
-        }
+    private void submitAnswerButtonOnClick(MouseEvent event) {
+        String questionNo  = surveysCombobox.getValue();
+        String answer = AnswerTextArea.getText();
+        String question = QuestionTextArea.getText();
+        SuveyStore s = new SuveyStore(questionNo,  question, answer);
+        SuveyStore.AddSurvey(s);
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle("Information Alert");
+        a.setHeaderText("Alert");
+        a.setContentText("Answer Submitted Succesfully");
+        a.showAndWait();
         
         
     }
 
     @FXML
-    private void nextQuestionOnClick(ActionEvent event) throws ClassNotFoundException {
-       
-    }
-    
-    
-    @FXML
-    private void submitSurveyOnClick(ActionEvent event) {
-        
+    private void LoadQuestionButtonOnClick(MouseEvent event) {
+        String question = surveysCombobox.getValue();
+        ObjectInputStream ois = null;
+        try {
+             Survey c;
+             ois = new ObjectInputStream(new FileInputStream("Survey.bin"));
+             
+            while(true){
+                c = (Survey) ois.readObject();
+                QuestionTextArea.setText(c.getQuestion());
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
     }
     
 }

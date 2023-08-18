@@ -31,6 +31,7 @@
             <Menu mnemonicParsing="false" text="Manage Customer">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#SeeCustomerDetailsOnClick" text="See Customer Details" />
+                  <MenuItem mnemonicParsing="false" onAction="#SeeCustomerListOnClick" text="See Customer List" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Logout">
