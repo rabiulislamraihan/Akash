@@ -29,6 +29,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javax.swing.text.Document;
 import javax.swing.text.StyleConstants.FontConstants;
+import mainpkg.PDFGenerator;
 
 
 
@@ -137,7 +138,7 @@ public class Technician implements Serializable{
   
     
        
-        public static void CreateBill(String name,String timeStamp, float equipmentCharge, float serviceCharge, float discount, float total, float grandTotal){
+        public static void CreateBill(int id,String name, String timeStamp, float equipmentCharge, float serviceCharge, float discount, float total, float grandTotal){
             
            
         File f = null;
@@ -154,7 +155,7 @@ public class Technician implements Serializable{
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);               
             }
-              Bill newBill = new Bill(name, timeStamp, equipmentCharge, serviceCharge, discount, total, grandTotal);  
+              Bill newBill = new Bill(id, name, timeStamp, equipmentCharge, serviceCharge, discount, total, grandTotal);  
             
             oos.writeObject(newBill);
 
@@ -172,7 +173,7 @@ public class Technician implements Serializable{
         
         public static void generatePDF(String text){
            
-            
+            PDFGenerator.generatePdf(text);
             
         }
         
@@ -247,16 +248,13 @@ public class Technician implements Serializable{
         
     
         }
-    public static String AddClientHistory(String name, String phone, LocalDate lastservicing) throws ClassNotFoundException{
+    public static String AddClientHistory(int id, String name, LocalDate lastservicing, String issue) throws ClassNotFoundException{
         
          File s = null;
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;
-        
-        ObjectInputStream ois = null;
 
-       
-        
+     
         try {
             ClientHistory h;
             s = new File("ClientHistory.bin");
@@ -268,20 +266,10 @@ public class Technician implements Serializable{
                 fos = new FileOutputStream(s);
                 oos = new ObjectOutputStream(fos);               
             }
-            ois = new ObjectInputStream(new FileInputStream("ClientHistory.bin"));
-             while(true){
-                h = (ClientHistory) ois.readObject();
-                if(h.phone.equals(phone)){
-                    h.lastservicing.equals(lastservicing) ;
-                    oos.writeObject(h);
-                 
-                    return(h.name+ " has last been visited on "+ h.lastservicing );
-                }
-                
-                    ClientHistory i = new ClientHistory(name, phone, lastservicing);
-                    oos.writeObject(i);
-                    return(i.name+ " has last been visited on "+ i.lastservicing );
-             }
+            
+            ClientHistory ch = new ClientHistory(id, name, lastservicing, issue);    
+//            listOfReport.add(newReport);
+           oos.writeObject(ch);
             
 //           oos.close();
            
@@ -300,20 +288,20 @@ public class Technician implements Serializable{
   return null;
    }
     
-   public static String LookupClientHistory(String phone){
+   public static String LookupClientHistory(int id){
        
         ObjectInputStream ois = null;
-
+        String data = null;
         try{
-            ClientHistory h;
+            ClientHistory ch;
             ois = new ObjectInputStream(new FileInputStream("ClientHistory.bin"));
             
             while(true){
-                h = (ClientHistory) ois.readObject();
-                if(h.phone.equals(phone)){
-                    return h.lastservicing.toString() ;
+                ch = (ClientHistory) ois.readObject();
+                if(ch.getId()==(id)){
+                    data = data+ ch.name + "\n" + ch.lastservicing + "\n" + ch.getIssue() + "\n \n";
                 }
-               
+                
             }
             
         }
@@ -328,7 +316,8 @@ public class Technician implements Serializable{
             }
             catch (IOException ex1){ }
         }
-        return "sorry, no data exists";
+        return data;
+        
         
        
    }

@@ -4,6 +4,7 @@
  */
 package Technicianpkg;
 
+import customerpkg.Customer;
 import java.io.Serializable;
 import java.net.URL;
 import java.time.LocalDate;
@@ -11,6 +12,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -22,10 +25,7 @@ import javafx.scene.control.TextField;
  */
 public class ClientHistoryController implements Initializable, Serializable {
 
-    @FXML
-    private TextField nameTextfield;
-    @FXML
-    private TextField idTextfield;
+
     @FXML
     private DatePicker lastServicingDatePicker;
     @FXML
@@ -33,7 +33,11 @@ public class ClientHistoryController implements Initializable, Serializable {
     @FXML
     private TextArea showLookupTextarea;
     @FXML
-    private TextField phoneTextfield;
+    private TextField clientIDTextfield;
+    @FXML
+    private TextField searchClientIDTextfield;
+    @FXML
+    private ComboBox<String> issuesCombobox;
 
     /**
      * Initializes the controller class.
@@ -41,24 +45,52 @@ public class ClientHistoryController implements Initializable, Serializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        issuesCombobox.getItems().addAll("Signal Amplification", "Setup Maintenance");
+        
     }    
 
     @FXML
     private void addClientHistory(ActionEvent event) throws ClassNotFoundException {
-        String name = nameTextfield.getText();
-        String phone = idTextfield.getText();
-        LocalDate lastservicing = lastServicingDatePicker.getValue();
         
-        String data = Technician.AddClientHistory(name, phone, lastservicing);
-        showAddedTextarea.setText(data);
+        int id = Integer.parseInt(clientIDTextfield.getText());
+        LocalDate lastservicing = lastServicingDatePicker.getValue();
+        String issue = issuesCombobox.getValue();
+        
+        if(Customer.CheckAccountExistence(id)){
+            Customer c = Customer.getInstance(id);
+            Technician.AddClientHistory(id, c.getName(),lastservicing, issue);
+            
+        showAddedTextarea.setText("Client History \n");
+        showAddedTextarea.appendText("Client ID: "+ id +"\n");
+        showAddedTextarea.appendText("Client Name: "+ c.getName() +"\n");
+        showAddedTextarea.appendText("Client Address: "+ c.getAddress() +"\n"+"\n");
+        
+        showAddedTextarea.appendText("Last Servicing Date: "+ lastservicing.toString() +"\n");
+        showAddedTextarea.appendText("Issue Resolved: "+ issue +"\n");
+
+            
+        }
+        else{
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("Account Doesn't Exists !");
+            a.showAndWait();
+        }
+    
         
     }
 
     @FXML
     private void lookupClientHistory(ActionEvent event) {
-        String phone = phoneTextfield.getText();
-        String data = Technician.LookupClientHistory(phone);
-        showLookupTextarea.setText("Date of last visit: "+data);
+        
+        int lookupID = Integer.parseInt(searchClientIDTextfield.getText());
+         if(Customer.CheckAccountExistence(lookupID)){
+             String data = Technician.LookupClientHistory(lookupID);
+             showLookupTextarea.appendText(data);
+         }
+        
+         
         
     }
     

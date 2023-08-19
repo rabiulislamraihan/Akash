@@ -11,6 +11,7 @@ import java.io.Serializable;
  * @author Hp
  */
 public class Bill implements Serializable {
+    int id;
     String Client;
     String time;
     float EquipmentCharge;
@@ -19,7 +20,8 @@ public class Bill implements Serializable {
     float total;
     float GrandTotal;
 
-    public Bill(String Client, String timeStamp, float EquipmentCharge, float SericeCharge, float discount, float total, float GrandTotal) {
+    public Bill(int id, String Client, String timeStamp, float EquipmentCharge, float SericeCharge, float discount, float total, float GrandTotal) {
+        this.id = id;
         this.Client = Client;
         this.time = timeStamp;
         this.EquipmentCharge = EquipmentCharge;
@@ -35,6 +37,14 @@ public class Bill implements Serializable {
     
     public static float CalculateGrandTotal(float total, float tax){
         return total+tax;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 //  
