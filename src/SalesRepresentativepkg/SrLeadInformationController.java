@@ -28,8 +28,6 @@ public class SrLeadInformationController implements Initializable {
     @FXML
     private TableColumn<TableData, String> durationColumn;
     @FXML
-    private Button loadButton;
-    @FXML
     private TextField liLeadName;
     @FXML
     private TextField liProjectName;
@@ -87,4 +85,9 @@ public class SrLeadInformationController implements Initializable {
             }
         }  
     }
+
+    @FXML
+    private void loadButtonClicked(MouseEvent event) {
+        loadTableViewData();
+        }
 }

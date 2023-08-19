@@ -18,7 +18,7 @@
          </font>
       </Label>
       <Label layoutX="59.0" layoutY="87.0" text="Customer Details:" underline="true" />
-      <Label layoutX="106.0" layoutY="124.0" text="Name:" />
+      <Label layoutX="141.0" layoutY="124.0" text="ID:" />
       <Label layoutX="99.0" layoutY="171.0" text="Address:" />
       <Label layoutX="54.0" layoutY="214.0" text="Phone Number:" />
       <TextField fx:id="srOMcustomerName" layoutX="176.0" layoutY="119.0" />
@@ -32,12 +32,15 @@
       <DatePicker fx:id="srOMvalidFrom" layoutX="598.0" layoutY="163.0" prefHeight="31.0" prefWidth="187.0" />
       <DatePicker fx:id="srOMvalidTill" layoutX="598.0" layoutY="209.0" prefHeight="31.0" prefWidth="187.0" />
       <ComboBox fx:id="srOMpackageName" layoutX="598.0" layoutY="119.0" prefHeight="31.0" prefWidth="187.0" />
-      <Label layoutX="59.0" layoutY="315.0" text="Installation Appoinment:" underline="true" />
-      <Label layoutX="54.0" layoutY="359.0" text="Appointment Date:" />
-      <Label layoutX="59.0" layoutY="409.0" text="Installation Team:" />
-      <DatePicker fx:id="srOMappointmentDate" layoutX="200.0" layoutY="354.0" />
-      <ComboBox fx:id="srOMit" layoutX="200.0" layoutY="404.0" prefHeight="31.0" prefWidth="218.0" />
-      <Button layoutX="580.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#srOMplaceOrder" prefHeight="134.0" prefWidth="187.0" text="Place Order" />
-      <TextArea fx:id="srOMshow" layoutX="23.0" layoutY="459.0" prefHeight="134.0" prefWidth="859.0" />
+      <Label layoutX="60.0" layoutY="278.0" text="Installation Appoinment:" underline="true" />
+      <Label layoutX="64.0" layoutY="315.0" text="Appointment Date:" />
+      <Label layoutX="69.0" layoutY="354.0" text="Installation Team:" />
+      <DatePicker fx:id="srOMappointmentDate" layoutX="207.0" layoutY="310.0" />
+      <ComboBox fx:id="srOMit" layoutX="207.0" layoutY="349.0" prefHeight="31.0" prefWidth="218.0" />
+      <Button layoutX="583.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#srOMplaceOrder" prefHeight="70.0" prefWidth="187.0" text="Place Order" />
+      <TextArea fx:id="srOMshow" layoutX="21.0" layoutY="493.0" prefHeight="115.0" prefWidth="859.0" />
+      <Label layoutX="52.0" layoutY="425.0" text="Customer ID to search:" />
+      <ComboBox fx:id="SrIDSearch" layoutX="213.0" layoutY="420.0" prefHeight="31.0" prefWidth="218.0" />
+      <Button fx:id="srOsearch" layoutX="583.0" layoutY="409.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="187.0" text="Search" />
    </children>
 </AnchorPane>

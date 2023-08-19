@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -47,6 +48,10 @@ public class SrManageOrdersController implements Initializable {
     private ComboBox<String> srOMit;
     @FXML
     private TextArea srOMshow;
+    @FXML
+    private ComboBox<?> SrIDSearch;
+    @FXML
+    private Button srOsearch;
 
     /**
      * Initializes the controller class.
@@ -60,12 +65,11 @@ public class SrManageOrdersController implements Initializable {
 
     @FXML
     private void srOMplaceOrder(MouseEvent event) {
-         Boolean orderStatus = SROrderManagementModel.addNewFaculty(
+         Boolean orderStatus = SROrderManagementModel.addNewOrder(
          srOMcustomerName.getText(),srOMcustomerAddress.getText(),Integer.parseInt(srOMcustomerNo.getText()),srOMpackageName.getValue(),srOMvalidFrom.getValue(),
                  srOMvalidTill.getValue(),srOMit.getValue(),srOMappointmentDate.getValue()
      );
     if (orderStatus==true){
-        srOMshow.setText("Faculty added");
         srOMshow.setText("");
         File f = null;
         FileInputStream fis = null;      
@@ -83,9 +87,8 @@ public class SrManageOrdersController implements Initializable {
                     order = (SROrderManagementModel)ois.readObject();
                     //Object obj = ois.readObject();
                     //obj.submitReport();
-                    order.show();
                     System.out.println(order.toString());
-                    srOMshow.appendText(order.toString());
+                    srOMshow.appendText("Customer Name: "+order.getCustomerName());
                 }
             }//end of nested try
             catch(Exception e){

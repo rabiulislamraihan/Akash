@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author anika
  */
-public class SROrderManagementModel {
+public class SROrderManagementModel implements Serializable{
     private final String customerName;
     private final String customerAddress;
     private final int customerNumber;
@@ -37,7 +38,7 @@ public class SROrderManagementModel {
         this.appointmentDate = appointmentDate;
     }
     
-        public static boolean addNewFaculty(String customerName, String customerAddress, int customerNumber, String packageName, LocalDate packageValidFrom, LocalDate packageValidTill, String teamName, LocalDate appointmentDate){
+        public static boolean addNewOrder(String customerName, String customerAddress, int customerNumber, String packageName, LocalDate packageValidFrom, LocalDate packageValidTill, String teamName, LocalDate appointmentDate){
         SROrderManagementModel newOrder = new SROrderManagementModel(customerName, customerAddress, customerNumber, packageName, packageValidFrom, packageValidTill, teamName, appointmentDate);
         File f = null;
         FileOutputStream fos = null;      
@@ -65,6 +66,38 @@ public class SROrderManagementModel {
             }
         }     
         return true;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public int getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public LocalDate getPackageValidFrom() {
+        return packageValidFrom;
+    }
+
+    public LocalDate getPackageValidTill() {
+        return packageValidTill;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public LocalDate getAppointmentDate() {
+        return appointmentDate;
     }
 
     public void show() {
