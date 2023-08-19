@@ -88,7 +88,8 @@ public class SrManageOrdersController implements Initializable {
                     //Object obj = ois.readObject();
                     //obj.submitReport();
                     System.out.println(order.toString());
-                    srOMshow.appendText("Customer Name: "+order.getCustomerName());
+                    srOMshow.appendText("Customer Name: " + order.getCustomerName() + "\n" +
+                            "Customer Address: " + order.getCustomerAddress() + "\n");
                 }
             }//end of nested try
             catch(Exception e){
