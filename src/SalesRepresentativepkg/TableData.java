@@ -7,49 +7,52 @@ package SalesRepresentativepkg;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class TableData implements Serializable {
-    private final StringProperty leaderName = new SimpleStringProperty();
-    private final StringProperty projectName = new SimpleStringProperty();
-    private final StringProperty startDate = new SimpleStringProperty();
-    private final StringProperty duration = new SimpleStringProperty();
+    private  String leaderName;
+    private  String projectName;
+    private LocalDate startDate;
+    private String duration;
 
-    public TableData(String leaderName, String projectName, String startDate, String duration) {
-        this.leaderName.set(leaderName);
-        this.projectName.set(projectName);
-        this.startDate.set(startDate);
-        this.duration.set(duration);
+
+    public TableData(String leaderName, String projectName, LocalDate startDate, String duration) {
+        this.leaderName = leaderName;
+        this.projectName = projectName;
+        this.startDate = startDate;
+        this.duration = duration;
+    }
+
+    public void setLeaderName(String leaderName) {
+        this.leaderName = leaderName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     public String getLeaderName() {
-        return leaderName.get();
-    }
-
-    public String getProjectName() {
-        return projectName.get();
-    }
-
-    public String getStartDate() {
-        return startDate.get();
-    }
-
-    public String getDuration() {
-        return duration.get();
-    }
-
-    public StringProperty leaderNameProperty() {
         return leaderName;
     }
 
-    public StringProperty projectNameProperty() {
+    public String getProjectName() {
         return projectName;
     }
 
-    public StringProperty startDateProperty() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public StringProperty durationProperty() {
+    public String getDuration() {
         return duration;
     }
+
 }
