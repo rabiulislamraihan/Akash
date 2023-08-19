@@ -155,7 +155,7 @@ public class Customer implements Serializable {
     }
     
     
-    public static Customer getInstance(int CustomerID, String Password) {
+    public static Customer getInstance(int CustomerID) {
         ObjectInputStream ois = null;
         Customer oc = null;
         try {

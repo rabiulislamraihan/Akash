@@ -58,7 +58,7 @@ public class CustomerLoginPageController implements Initializable {
             a.showAndWait();
             return;
         }
-        Customer c = Customer.getInstance(id, password);
+        Customer c = Customer.getInstance(id);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/customerpkg/CustomerHomePageScene.fxml"));
         Parent root = loader.load();
